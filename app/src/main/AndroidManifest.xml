@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.chat">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/logof"
+        android:label="Go On!"
+        android:roundIcon="@mipmap/logof"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Opener"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity android:name=".MessageActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".StartActivity" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:parentActivityName=".StartActivity" />
+        <activity android:name=".StartActivity">
+        </activity>
+
+        <service
+            android:name="Notification.FirebaseID"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="Notification.Messaging"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
